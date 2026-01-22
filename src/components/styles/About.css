@@ -1,0 +1,79 @@
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  place-items: center;
+  position: relative;
+  opacity: 1;
+  height: auto;
+  width: var(--cWidth);
+  margin: auto;
+}
+.about-me {
+  padding: 50px 0px;
+  padding-bottom: 0;
+  width: 100%;
+  max-width: 800px; /* Increased max-width for better flow */
+}
+.about-me h3 {
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-weight: 400;
+  color: var(--accentColor);
+}
+
+.about-me p {
+  font-size: 18px; /* Normal font size */
+  font-weight: 400; /* Normal weight */
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  word-spacing: normal;
+  margin-top: 10px;
+  color: #c5c5c5;
+  text-indent: 40px; /* Indent the first line */
+  text-align: justify; /* Optional: good for block text */
+}
+
+@media only screen and (min-width: 600px) {
+  .about-section {
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .about-me {
+    width: 80%;
+    max-width: 900px;
+    transform: translateY(0%);
+  }
+  .about-section {
+    opacity: 1;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .about-section {
+    width: var(--cWidth);
+    justify-content: flex-end;
+    max-width: 1920px;
+    height: var(--vh);
+    padding: 0px;
+    opacity: 1;
+  }
+  .about-me {
+    padding: 40px;
+    width: 55%;
+    min-width: 600px;
+    box-sizing: border-box;
+    padding-right: 10%;
+  }
+  .about-me p {
+    font-size: 18px; /* Keep consistent */
+    line-height: 1.6;
+  }
+}
+@media only screen and (min-width: 1950px) {
+  .about-me p {
+    font-size: 20px; /* Slightly larger on huge screens */
+    line-height: 1.6;
+  }
+}
