@@ -19,12 +19,13 @@
 @media only screen and (max-width: 768px) {
   .whatIDO {
     height: auto;
-    min-height: 100vh;
+    min-height: auto;
     padding: 50px 0;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    z-index: 8;
+    z-index: 1;
+    position: relative;
   }
 }
 
@@ -32,29 +33,33 @@
   .whatIDO {
     min-height: auto;
     padding: 30px 0;
-    z-index: 8;
+    z-index: 1;
+    position: relative;
   }
 }
 
 .i-do-section {
-  display: block;
-  margin-top: 15px;
-  padding-left: 80px;
-  font-size: 0.55em;
-  line-height: 1;
+  display: block !important;
+  margin-top: 10px;
+  padding-left: 60px;
+  font-size: 0.5em;
+  line-height: 1.2;
+  width: 100%;
 }
 
 .i-text {
   color: #c2a4ff !important;
   font-size: 1em;
-  font-weight: 500;
-  margin-right: 15px;
+  font-weight: 600;
+  margin-right: 12px;
+  letter-spacing: 2px;
 }
 
 .do-text {
   color: #ffffff !important;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
 .what-box {

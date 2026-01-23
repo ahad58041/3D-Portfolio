@@ -18,18 +18,22 @@
 @media only screen and (max-width: 768px) {
   .career-section {
     margin-bottom: 150px;
-    margin-top: 50px;
+    margin-top: 0;
     padding: 80px 20px;
-    z-index: 5;
+    z-index: 10;
+    position: relative;
+    background-color: var(--backgroundColor);
   }
 }
 
 @media only screen and (max-width: 480px) {
   .career-section {
     margin-bottom: 100px;
-    margin-top: 40px;
+    margin-top: 0;
     padding: 50px 15px;
-    z-index: 5;
+    z-index: 10;
+    position: relative;
+    background-color: var(--backgroundColor);
   }
 }
 
@@ -248,9 +252,11 @@
 @media only screen and (max-width: 1025px) {
   .career-section {
     padding: 70px 0px;
-    padding-top: 220px;
-    margin-top: -200px;
+    padding-top: 80px;
+    margin-top: 0;
     margin-bottom: 0;
+    z-index: 10;
+    position: relative;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -293,9 +299,10 @@
     padding-left: 5%;
   }
   .career-section {
-    padding-top: 90px;
-    margin-top: -70px;
-
+    padding-top: 50px;
+    margin-top: 0;
+    z-index: 10;
+    position: relative;
     align-items: start;
     place-items: inherit;
     justify-content: left;
