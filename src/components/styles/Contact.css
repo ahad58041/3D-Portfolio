@@ -131,9 +131,17 @@ a.contact-social {
   .contact-section {
     margin-top: 50px;
     padding-bottom: 50px;
+    z-index: 20;
+    position: relative;
   }
   .contact-container {
     width: calc(100% - 25px);
+    padding: 0 15px;
+  }
+  .contact-section h3,
+  .contact-box {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
@@ -142,6 +150,12 @@ a.contact-social {
   .contact-section h3 {
     font-size: 28px;
     margin-bottom: 25px;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .contact-box {
+    opacity: 1 !important;
+    transform: none !important;
   }
   .contact-box h2 {
     font-size: 14px;
