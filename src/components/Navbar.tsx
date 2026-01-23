@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
@@ -11,6 +11,16 @@ gsap.registerPlugin(ScrollTrigger);
 export let lenis: Lenis | null = null;
 
 const Navbar = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
   useEffect(() => {
     // Initialize Lenis smooth scroll
     lenis = new Lenis({
@@ -55,18 +65,23 @@ const Navbar = () => {
             }
           }
         }
+        closeMobileMenu();
       });
     });
 
     // Handle resize
     window.addEventListener("resize", () => {
       lenis?.resize();
+      if (window.innerWidth > 768) {
+        setMobileMenuOpen(false);
+      }
     });
 
     return () => {
       lenis?.destroy();
     };
   }, []);
+
   return (
     <>
       <div className="header">
@@ -80,7 +95,21 @@ const Navbar = () => {
         >
           {config.contact.email}
         </a>
-        <ul>
+        
+        {/* Hamburger Menu Button - visible on mobile */}
+        <button 
+          className={`hamburger-menu ${mobileMenuOpen ? 'active' : ''}`} 
+          onClick={toggleMobileMenu}
+          aria-label="Toggle navigation menu"
+          data-cursor="disable"
+        >
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+        </button>
+
+        {/* Desktop Navigation */}
+        <ul className="nav-desktop">
           <li>
             <a data-href="#about" href="#about">
               <HoverLinks text="ABOUT" />
@@ -97,6 +126,27 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
+
+        {/* Mobile Navigation Overlay */}
+        <div className={`mobile-nav-overlay ${mobileMenuOpen ? 'active' : ''}`}>
+          <ul className="nav-mobile">
+            <li>
+              <a data-href="#about" href="#about" onClick={closeMobileMenu}>
+                ABOUT
+              </a>
+            </li>
+            <li>
+              <a data-href="#work" href="#work" onClick={closeMobileMenu}>
+                WORK
+              </a>
+            </li>
+            <li>
+              <a data-href="#contact" href="#contact" onClick={closeMobileMenu}>
+                CONTACT
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div className="landing-circle1"></div>

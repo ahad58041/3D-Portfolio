@@ -35,6 +35,42 @@
   text-align: justify; /* Optional: good for block text */
 }
 
+@media only screen and (max-width: 480px) {
+  .about-section {
+    width: 100%;
+    justify-content: center;
+  }
+  .about-me {
+    padding: 30px 15px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .about-me h3 {
+    font-size: 18px;
+    letter-spacing: 4px;
+  }
+  .about-me p {
+    font-size: 14px;
+    text-indent: 20px;
+    line-height: 1.5;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .about-me {
+    width: 90%;
+    max-width: 100%;
+    padding: 40px 20px;
+  }
+  .about-me h3 {
+    font-size: 22px;
+  }
+  .about-me p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
 @media only screen and (min-width: 600px) {
   .about-section {
     justify-content: center;

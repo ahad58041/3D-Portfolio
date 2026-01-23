@@ -9,7 +9,28 @@
   height: auto;
   margin: auto;
   margin-bottom: 250px;
+  margin-top: 0;
   padding: 120px 0px;
+  z-index: 5;
+  background-color: var(--backgroundColor);
+}
+
+@media only screen and (max-width: 768px) {
+  .career-section {
+    margin-bottom: 150px;
+    margin-top: 50px;
+    padding: 80px 20px;
+    z-index: 5;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .career-section {
+    margin-bottom: 100px;
+    margin-top: 40px;
+    padding: 50px 15px;
+    z-index: 5;
+  }
 }
 
 .career-section h2 {
@@ -24,6 +45,23 @@
   color: transparent;
   margin-top: 50px;
   margin-bottom: 90px;
+}
+
+@media only screen and (max-width: 768px) {
+  .career-section h2 {
+    font-size: 40px;
+    line-height: 45px;
+    margin-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .career-section h2 {
+    font-size: 28px;
+    line-height: 32px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
 }
 .career-section h2 > span {
   font-family: "Geist", sans-serif;
@@ -46,17 +84,66 @@
   font-weight: 300;
   margin: 0;
 }
+
+@media only screen and (max-width: 768px) {
+  .career-info-box {
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+  .career-info-box p {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .career-info-box {
+    margin-bottom: 25px;
+  }
+  .career-info-box p {
+    font-size: 14px;
+  }
+}
 .career-info-in {
   display: flex;
   width: 40%;
   justify-content: space-between;
   gap: 50px;
 }
+
+@media only screen and (max-width: 768px) {
+  .career-info-in {
+    width: 100%;
+    gap: 30px;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .career-info-in {
+    gap: 20px;
+  }
+}
 .career-info h3 {
   font-size: 48px;
   margin: 0;
   font-weight: 500;
   line-height: 45px;
+}
+
+@media only screen and (max-width: 768px) {
+  .career-info h3 {
+    font-size: 32px;
+    line-height: 35px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .career-info h3 {
+    font-size: 24px;
+    line-height: 28px;
+  }
 }
 
 .career-info h4 {
@@ -214,3 +301,27 @@
     justify-content: left;
   }
 }
+
+/* Small screen optimizations (< 400px) */
+@media only screen and (max-width: 400px) {
+  .career-section h2 {
+    font-size: 32px;
+    line-height: 34px;
+    margin-bottom: 50px;
+  }
+  .career-info h3 {
+    font-size: 24px;
+    line-height: 26px;
+  }
+  .career-info h4 {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  .career-info h5 {
+    font-size: 14px;
+  }
+  .career-info-box p {
+    font-size: 12px;
+  }
+}
+

@@ -25,6 +25,15 @@
   border-radius: 50%;
   animation: loadingCircle 5s linear infinite;
 }
+
+@media only screen and (max-width: 768px) {
+  .landing-circle1 {
+    width: 150px;
+    height: 150px;
+    box-shadow: inset -25px 20px 25px rgba(84, 0, 255, 0.6);
+    filter: blur(40px);
+  }
+}
 .nav-fade {
   position: fixed;
   top: 0;
@@ -97,18 +106,32 @@
   transform: translate(-50%, 100%) scale(1.4);
   opacity: 0;
 }
+
+@media only screen and (max-width: 768px) {
+  .character-rim {
+    width: 200px;
+    height: 200px;
+    box-shadow: inset 33px 18px 42px 0px rgba(85, 0, 255, 0.65);
+    filter: blur(30px);
+    transform: translate(-50%, 100%) scale(1);
+  }
+}
 .character-model {
-  height: 80%;
   height: 80vh;
-  position: absolute;
-  max-width: 1920px;
-  max-height: 1080px;
-  transform: translateX(-50%);
   width: 100%;
-  left: 54%; /* Moved slightly right */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 0;
   bottom: 50px;
-  pointer-events: inherit;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .character-model {
+    height: 60vh;
+    bottom: 20px;
+  }
 }
 .character-model::after {
   content: "";
@@ -142,9 +165,14 @@
   opacity: 0;
 }
 .character-model canvas {
-  position: relative;
+  position: absolute;
   pointer-events: none;
   z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100% !important;
+  height: 100% !important;
 }
 .character-hover {
   position: absolute;
@@ -161,20 +189,23 @@
   z-index: 9;
   top: 12%;
   left: 0;
+  max-width: calc(100% - 30px);
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 .landing-intro h2 {
   margin: 0;
   color: var(--accentColor);
-  font-size: 22px;
+  font-size: clamp(14px, 4vw, 22px);
   font-weight: 300;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .landing-intro h1 {
   margin: 0;
-  letter-spacing: 2px;
-  font-size: 28px;
-  line-height: 28px;
+  letter-spacing: 1px;
+  font-size: clamp(18px, 5vw, 28px);
+  line-height: 1.2;
   font-weight: 500;
   font-family: "Geist", sans-serif;
 }
@@ -258,10 +289,48 @@
   bottom: 40px;
   top: inherit;
   z-index: 9;
+  max-width: 100%;
+  box-sizing: border-box;
 }
+
+@media only screen and (max-width: 768px) {
+  .landing-info {
+    bottom: auto;
+    top: 18%;
+    right: 0;
+    transform: none;
+    left: 0;
+    text-align: left;
+    padding: 0 20px;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .landing-intro {
+    top: 8%;
+    padding: 0 15px;
+  }
+  .landing-info {
+    top: 20%;
+    padding: 0 15px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .landing-intro {
+    top: 6%;
+    padding: 0 10px;
+  }
+  .landing-info {
+    top: 16%;
+    padding: 0 10px;
+  }
+}
+
 .landing-info h3 {
-  font-size: 22px;
-  letter-spacing: 2px;
+  font-size: clamp(14px, 4vw, 22px);
+  letter-spacing: 1px;
   font-weight: 300;
   color: var(--accentColor);
   margin: 0;
@@ -272,13 +341,13 @@
   margin-left: 0px;
   font-family: "Geist", sans-serif;
   font-weight: 600;
-  font-size: 32px;
-  line-height: 40px;
+  font-size: clamp(20px, 5vw, 32px);
+  line-height: 1.2;
   position: relative;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 .landing-h2-info-1 {
   position: absolute;
@@ -286,13 +355,15 @@
 }
 h2.landing-info-h2 {
   color: #c481ff;
-  font-size: 42px;
-  width: 120%;
+  font-size: clamp(24px, 6vw, 42px);
+  width: 100%;
+  max-width: 100%;
   margin: 0;
   font-family: "Geist", sans-serif;
   font-weight: 600;
   position: relative;
   margin-left: 0px;
+  word-wrap: break-word;
 }
 .landing-h2-2 {
   position: absolute;
@@ -346,12 +417,19 @@ h2.landing-info-h2 {
     font-size: 55px;
   }
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1251px) {
   .character-model {
     height: 100vh;
     bottom: 0;
     z-index: 11;
     position: fixed;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .character-model::after,
   .character-model::before {

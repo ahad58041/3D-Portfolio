@@ -27,12 +27,17 @@ const Scene = () => {
       const aspect = container.width / container.height;
       const scene = sceneRef.current;
 
+      // Mobile detection for performance optimizations
+      const isMobile = window.innerWidth < 768 || window.innerHeight < 600;
+      
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
         antialias: false,
+        powerPreference: 'high-performance', // Use dedicated GPU when available
       });
       renderer.setSize(container.width, container.height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      // Lower pixel ratio on mobile for better performance
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1;
       canvasDiv.current.appendChild(renderer.domElement);
@@ -129,8 +134,21 @@ const Scene = () => {
         landingDiv.addEventListener("touchend", onTouchEnd);
       }
       let requestID: number;
-      const animate = () => {
+      
+      // Frame rate limiting for mobile performance (30fps on mobile, 60fps on desktop)
+      const targetFPS = isMobile ? 30 : 60;
+      const frameInterval = 1000 / targetFPS;
+      let lastFrameTime = 0;
+      
+      const animate = (currentTime: number = 0) => {
         requestID = requestAnimationFrame(animate);
+        
+        // Skip frame if not enough time has passed (mobile optimization)
+        if (isMobile && currentTime - lastFrameTime < frameInterval) {
+          return;
+        }
+        lastFrameTime = currentTime;
+        
         if (headBone) {
           handleHeadRotation(
             headBone,

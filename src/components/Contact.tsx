@@ -9,6 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   useEffect(() => {
+    // Refresh ScrollTrigger after a delay to ensure correct positioning after layout shifts
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 1000);
+
     const contactTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".contact-section",
@@ -52,6 +57,7 @@ const Contact = () => {
 
     // Clean up
     return () => {
+      clearTimeout(timer);
       contactTimeline.kill();
     };
   }, []);

@@ -3,7 +3,7 @@
   padding-bottom: 150px;
   margin-top: 0;
   position: relative;
-  z-index: 1;
+  z-index: 10;
   background-color: var(--backgroundColor);
   min-height: 60vh;
   display: flex;
@@ -16,6 +16,20 @@
   text-transform: uppercase;
   margin: 0;
   margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-section h3 {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .contact-section h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
 }
 .contact-flex {
   display: flex;
@@ -38,10 +52,34 @@ a.contact-social {
   font-size: 25px;
   border-bottom: 1px solid #ccc;
 }
+
+@media only screen and (max-width: 768px) {
+  a.contact-social {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  a.contact-social {
+    font-size: 18px;
+  }
+}
 .contact-box h2 {
   font-weight: 400;
   font-size: 23px;
   margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-box h2 {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .contact-box h2 {
+    font-size: 16px;
+  }
 }
 .contact-box h2 > span {
   color: var(--accentColor);
@@ -98,3 +136,21 @@ a.contact-social {
     width: calc(100% - 25px);
   }
 }
+
+/* Small screen optimizations (< 400px) */
+@media only screen and (max-width: 400px) {
+  .contact-section h3 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+  .contact-box h2 {
+    font-size: 14px;
+  }
+  a.contact-social {
+    font-size: 16px;
+  }
+  .contact-box h5 {
+    font-size: 14px;
+  }
+}
+

@@ -55,6 +55,11 @@ main {
     opacity: 1;
   }
 }
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
   margin: 0;
   height: auto;
@@ -64,6 +69,7 @@ body {
   --cMaxWidth: 1920px;
   max-width: 100vw;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 .main-body {
   max-width: 100vw;
@@ -140,6 +146,29 @@ body {
   text-transform: uppercase;
   z-index: 3;
   margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    --cWidth: calc(100% - 20px);
+  }
+  .techstack h2 {
+    font-size: 40px;
+    top: 80px;
+  }
+  .split-h2 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    --cWidth: calc(100% - 40px);
+  }
+  .techstack h2 {
+    font-size: 50px;
+    top: 100px;
+  }
 }
 
 @media screen and (min-width: 768px) {
